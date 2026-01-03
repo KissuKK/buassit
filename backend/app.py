@@ -120,8 +120,8 @@ def get_all_customers():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    # 默认使用5001端口，避免与macOS AirPlay Receiver冲突
+    # 使用环境变量PORT，Zeabur会自动设置此变量
     port = int(os.environ.get('PORT', 5001))
-    print(f'后端服务启动在 http://localhost:{port}')
-    app.run(debug=True, host='0.0.0.0', port=port)
+    print(f'后端服务启动在 http://0.0.0.0:{port}')
+    app.run(debug=False, host='0.0.0.0', port=port)
 
